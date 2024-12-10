@@ -13,7 +13,7 @@
   "paths": {
     "/": {
       "get": {
-        "description": "",
+        "description": "GET az összes felhasználót visszaadja",
         "responses": {
           "200": {
             "description": "OK"
@@ -21,7 +21,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "POST egy új felhasználót hoz létre",
         "parameters": [
           {
             "name": "body",
@@ -48,7 +48,7 @@
     },
     "/{id}": {
       "get": {
-        "description": "",
+        "description": "GET egy felhasználó adatait adja vissza",
         "parameters": [
           {
             "name": "id",
@@ -67,7 +67,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": " PUT egy felhasználó adatait módosítja",
         "parameters": [
           {
             "name": "id",
@@ -101,7 +101,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "DELETE egy felahsználó adatait törli",
         "parameters": [
           {
             "name": "id",
