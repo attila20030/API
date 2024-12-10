@@ -4,16 +4,17 @@ const db = new sqlite3.Database("./database.sqlite");
 
 const initializeDB = async () => {
     await dbRun("DROP TABLE IF EXISTS users")
-    await dbRun("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT)");
+    await dbRun("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, firstName TEXT, lastName TEXT, email TEXT, class TEXT)");
 
     const users = [
-        { name: "John Doe", email: "john.doe@example.com" },
-        { name: "Jane Smith", email: "jane.smith@example.com" },
-        { name: "Sam Johnson", email: "sam.johnson@example.com" },
+        { id: "1",firstName: "John",lastName: "Wick", email: "john.wick@example.com",class:"2/14.a" },
+        { id: "2",firstName: "Balogh",lastName: "Niki", email: "balogh.niki@example.com",class:"2/14.b" },
+        { id: "3",firstName: "Kis",lastName: "Lili", email: "kis.lili@example.com",class:"2/14.c" },
+
     ];
     
     for (const user of users) {
-        await dbRun("INSERT INTO users (name, email) VALUES (?, ?)", [user.name, user.email]);
+        await dbRun("INSERT INTO users (firstName,lastName,email,class) VALUES (?, ?, ?, ?)", [user.firstName,user.lastName,user.email, user.class]);
     }
 };
 
