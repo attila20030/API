@@ -24,7 +24,8 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
     try {
-        const result = await dbRun("INSERT INTO users (name, email) VALUES (?, ?);", [req.body.name, req.body.email]);
+        const result = await dbRun("INSERT INTO users (firstName,lastName,email,class) VALUES (?, ?, ?, ?)",  
+            [req.body.firstName,req.body.lastName, req.body.email, req.body.class]);
         res.status(201).json({ id: result.lastID, ...req.body });
     } catch (err) {
         next(err);
